@@ -54,7 +54,7 @@ namespace Application.Clients.Services
 
         public ClientResponse UpdateAsync(UpdateClientRequest request)
         {
-            Client?  client = clientRepository.FindById(request.Id);
+            Client? client = clientRepository.FindById(request.Id);
             ArgumentNullException.ThrowIfNull(client, "Cliente");
             client.Name = request.Name;
             client.Phone = request.Phone;

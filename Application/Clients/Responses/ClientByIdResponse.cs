@@ -23,6 +23,5 @@ namespace Application.Clients.Responses
                 Address = AddressResponse.FromModel(client.Address)
             };
         }
-
     }
 }

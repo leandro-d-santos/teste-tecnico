@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Orders\Services\" />
-    <Folder Include="Orders\ViewModels\" />
     <Folder Include="Products\" />
   </ItemGroup>
 

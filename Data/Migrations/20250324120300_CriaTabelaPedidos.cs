@@ -16,7 +16,7 @@ namespace Data.Migrations
                 .AppendLine("id INTEGER PRIMARY KEY AUTOINCREMENT")
                 .AppendLine(",clienteId INTEGER NOT NULL")
                 .AppendLine(",status TEXT NOT NULL")
-                .AppendLine(",FOREIGN KEY (clienteId) REFERENCES Clientes(id)")
+                .AppendLine(",FOREIGN KEY (clienteId) REFERENCES TTClientes(id)")
                 .AppendLine(");")
                 .AppendLine("")
                 .AppendLine("CREATE TABLE IF NOT EXISTS TTItensPedido (")
@@ -25,7 +25,7 @@ namespace Data.Migrations
                 .AppendLine(",produtoId INTEGER NOT NULL")
                 .AppendLine(",quantidade INTEGER NOT NULL")
                 .AppendLine(",precoUnitario REAL NOT NULL")
-                .AppendLine(",FOREIGN KEY (pedidoId) REFERENCES Pedidos(id)")
+                .AppendLine(",FOREIGN KEY (pedidoId) REFERENCES TTPedidos(id)")
                 .AppendLine(");")
                 .ToString();
             IDbCommand command = connection.CreateCommand();

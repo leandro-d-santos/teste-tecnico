@@ -1,9 +1,10 @@
-
 using Application.Clients.Services;
+using Application.Orders.Services;
 using Data.Clients.Repositories;
 using Data.Connection;
+using Data.Orders.Repositories;
 using Domain.Clients.Repositories;
-using Microsoft.Extensions.Configuration;
+using Domain.Orders.Repositories;
 
 namespace Api
 {
@@ -34,7 +35,6 @@ namespace Api
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
@@ -43,13 +43,13 @@ namespace Api
         private static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IClientService, ClientService>();
-            //services.AddScoped<IPedidoService, PedidoService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IClientRepository, ClientRepository>();
-            //services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
         }
     }
 }

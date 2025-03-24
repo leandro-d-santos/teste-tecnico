@@ -1,5 +1,4 @@
-﻿
-using Domain.Clients.Models;
+﻿using Domain.Clients.Models;
 
 namespace Application.Clients.Responses
 {

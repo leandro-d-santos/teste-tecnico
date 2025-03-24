@@ -7,11 +7,11 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/clients")]
-    public class ClientesController : ControllerBase
+    public class ClientsController : ControllerBase
     {
         private readonly IClientService clientService;
 
-        public ClientesController(IClientService clientService)
+        public ClientsController(IClientService clientService)
         {
             this.clientService = clientService;
         }
@@ -55,6 +55,5 @@ namespace Api.Controllers
             clientService.DeleteAsync(id);
             return Ok();
         }
-
     }
 }

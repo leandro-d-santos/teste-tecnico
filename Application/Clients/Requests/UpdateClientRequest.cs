@@ -1,5 +1,4 @@
-﻿
-namespace Application.Clients.Requests
+﻿namespace Application.Clients.Requests
 {
     public sealed class UpdateClientRequest
     {
