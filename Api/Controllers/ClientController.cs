@@ -7,31 +7,26 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/clients")]
-    public class ClientsController : ControllerBase
+    public class ClientsController(IClientService clientService) : ControllerBase
     {
-        private readonly IClientService clientService;
-
-        public ClientsController(IClientService clientService)
-        {
-            this.clientService = clientService;
-        }
+        private readonly IClientService _clientService = clientService;
 
         [HttpPost]
         public ActionResult<ClientResponse> CreateAsync([FromBody] CreateClientRequest request)
         {
-            return Ok(clientService.CreateAsync(request));
+            return Ok(_clientService.CreateAsync(request));
         }
 
         [HttpGet]
         public ActionResult<IList<ClientSearchResponse>> FindAsync([FromQuery] ClientSearchRequest request)
         {
-            return Ok(clientService.FindAsync(request));
+            return Ok(_clientService.FindAsync(request));
         }
 
         [HttpGet("{id}")]
         public ActionResult<ClientByIdResponse> FindByIdAsync([FromRoute] int id)
         {
-            ClientByIdResponse? response = clientService.FindByIdAsync(id);
+            ClientByIdResponse? response = _clientService.FindByIdAsync(id);
             if (response is null)
             {
                 return BadRequest("Recurso não encontrado");
@@ -46,13 +41,13 @@ namespace Api.Controllers
             {
                 return BadRequest(String.Format("Parâmetro inválido: {0}", nameof(id)));
             }
-            return Ok(clientService.UpdateAsync(request));
+            return Ok(_clientService.UpdateAsync(request));
         }
 
         [HttpDelete("{id}")]
         public ActionResult DeleteAsync([FromRoute] int id)
         {
-            clientService.DeleteAsync(id);
+            _clientService.DeleteAsync(id);
             return Ok();
         }
     }

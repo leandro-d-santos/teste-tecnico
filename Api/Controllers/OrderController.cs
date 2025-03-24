@@ -8,31 +8,26 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/orders")]
-    public class OrdersController : ControllerBase
+    public class OrdersController(IOrderService orderService) : ControllerBase
     {
-        private readonly IOrderService orderService;
-
-        public OrdersController(IOrderService orderService)
-        {
-            this.orderService = orderService;
-        }
+        private readonly IOrderService _orderService = orderService;
 
         [HttpPost]
         public ActionResult<ShortOrderResponse> CreateAsync([FromBody] CreateOrderRequest request)
         {
-            return Ok(orderService.CreateAsync(request));
+            return Ok(_orderService.CreateAsync(request));
         }
 
         [HttpGet]
         public ActionResult<IList<OrderResponse>> FindAsync([FromQuery] OrderSearchRequest request)
         {
-            return Ok(orderService.FindAsync(request));
+            return Ok(_orderService.FindAsync(request));
         }
 
         [HttpGet("{id}")]
         public ActionResult<OrderResponse> FindByIdAsync([FromRoute] int id)
         {
-            OrderResponse? response = orderService.FindByIdAsync(id);
+            OrderResponse? response = _orderService.FindByIdAsync(id);
             if (response is null)
             {
                 return BadRequest("Recurso não encontrado");
@@ -47,20 +42,20 @@ namespace Api.Controllers
             {
                 return BadRequest(String.Format("Parâmetro inválido: {0}", nameof(id)));
             }
-            return Ok(orderService.UpdateAsync(request));
+            return Ok(_orderService.UpdateAsync(request));
         }
 
         [HttpDelete("{id}")]
         public ActionResult DeleteAsync([FromRoute] int id)
         {
-            orderService.DeleteAsync(id);
+            _orderService.DeleteAsync(id);
             return Ok();
         }
 
         [HttpPatch("{id}")]
         public ActionResult UpdateStatusAsync([FromRoute] int id, [FromBody] UpdateStatusRequest request)
         {
-            orderService.UpdateStatus(id, request.Status);
+            _orderService.UpdateStatus(id, request.Status);
             return Ok();
         }
     }

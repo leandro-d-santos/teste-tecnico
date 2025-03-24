@@ -1,10 +1,13 @@
 using Application.Clients.Services;
 using Application.Orders.Services;
+using Application.Tokens.Services;
 using Data.Clients.Repositories;
 using Data.Connection;
 using Data.Orders.Repositories;
+using Data.Tokens.Repositories;
 using Domain.Clients.Repositories;
 using Domain.Orders.Repositories;
+using Domain.Tokens.Repositories;
 
 namespace Api
 {
@@ -44,12 +47,14 @@ namespace Api
         {
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<ITokenSettingsService, TokenSettingsService>();
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ITokenSettingsRepository, TokenSettingsRepository>();
         }
     }
 }

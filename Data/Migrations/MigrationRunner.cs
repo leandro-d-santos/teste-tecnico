@@ -20,6 +20,7 @@ namespace Data.Migrations
             IList<IMigration> commands = [
                 new CriaTabelaClientes(),
                 new CriaTabelaPedidos(),
+                new CriaTabelaTokens(),
                 ];
 
             using (var connection = _connection.CreateConnection())
