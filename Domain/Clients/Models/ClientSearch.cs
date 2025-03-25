@@ -7,5 +7,7 @@
         public string? Status { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
+        public int Offset { get; set; }
+        public int Limit { get; set; }
     }
 }

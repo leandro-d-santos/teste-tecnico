@@ -1,4 +1,5 @@
 ﻿using Data.Connection;
+using Domain.Clients.Models;
 using Domain.Orders.Models;
 using Domain.Orders.Repositories;
 using Microsoft.Data.Sqlite;
@@ -146,6 +147,7 @@ namespace Data.Orders.Repositories
                 IDbCommand command = connection.CreateCommand();
                 StringBuilder query = new(GetQuery());
                 query.AppendLine(GetQueryFilter(filter, command));
+                query.AppendLine(GetQueryLimits(filter, command));
                 command.CommandText = query.ToString();
                 using IDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -236,6 +238,14 @@ namespace Data.Orders.Repositories
                 builder.AppendFormat("AND TTIP.produtoId=@productId").AppendLine();
                 command.Parameters.Add(new SqliteParameter("@productId", filter.ProductId));
             }
+            return builder.ToString();
+        }
+
+        private static string GetQueryLimits(OrderSearch filter, IDbCommand command)
+        {
+            StringBuilder builder = new("LIMIT @limit OFFSET @offset");
+            command.Parameters.Add(new SqliteParameter("@limit", filter.Limit));
+            command.Parameters.Add(new SqliteParameter("@offset", filter.Offset));
             return builder.ToString();
         }
 

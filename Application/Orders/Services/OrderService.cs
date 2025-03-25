@@ -48,6 +48,14 @@ namespace Application.Orders.Services
         public IList<OrderResponse> FindAsync(OrderSearchRequest request)
         {
             OrderSearch filter = request.ToModel(request);
+            if (request.Offset is null)
+            {
+                filter.Offset = 0;
+            }
+            if (request.Limit is null)
+            {
+                filter.Limit = 50;
+            }
             IList<Order> orders = orderRepository.Find(filter);
             return orders.Select(order => OrderResponse.FromModel(order)).ToList();
         }

@@ -1,12 +1,14 @@
 ﻿using Application.Clients.Requests;
 using Application.Clients.Responses;
 using Application.Clients.Services;
+using Domain.Tokens.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("api/clients")]
+    [ServiceFilter(typeof(TokenAuth))]
     public class ClientsController(IClientService clientService) : ControllerBase
     {
         private readonly IClientService _clientService = clientService;

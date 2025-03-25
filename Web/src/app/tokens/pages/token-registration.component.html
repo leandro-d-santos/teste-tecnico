@@ -1,0 +1,66 @@
+<div class="container-fluid pt-3">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-3"
+           [class.error]="formControlHasError('description')">
+        <input type="text"
+               class="form-control"
+               formControlName="description"
+               placeholder="Descrição">
+        <div class="error-text"
+             *ngIf="formControlHasError('description')">
+          {{getFormControlError('description')}}
+        </div>
+      </div>
+      <div class="col-3"
+           [class.error]="formControlHasError('expiration')">
+        <input type="datetime-local"
+               class="form-control"
+               formControlName="expiration"
+               placeholder="Expiração">
+        <div class="error-text"
+             *ngIf="formControlHasError('expiration')">
+          {{getFormControlError('expiration')}}
+        </div>
+      </div>
+      <div class="col-2">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="save()">
+          Cadastrar
+        </button>
+      </div>
+      <ng-container *ngIf="currentToken">
+        <div class="col-4">
+          <div class="alert alert-success text-center"
+               role="alert">
+            {{ currentToken }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </form>
+  <div class="row mt-2">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Expiração</th>
+            <th scope="col">Revogado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let token of tokens">
+            <td><button (click)="revoke(token)"
+                      class="btn btn-danger">Revogar</button></td>
+            <td>{{token.description}}</td>
+            <td>{{token.expiration}}</td>
+            <td>{{token.revoked ? 'Sim' : 'Não'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

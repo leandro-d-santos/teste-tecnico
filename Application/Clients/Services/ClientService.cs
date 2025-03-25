@@ -48,6 +48,14 @@ namespace Application.Clients.Services
         public IList<ClientSearchResponse> FindAsync(ClientSearchRequest request)
         {
             ClientSearch filter = request.ToModel(request);
+            if (request.Offset is null)
+            {
+                filter.Offset = 0;
+            }
+            if (request.Limit is null)
+            {
+                filter.Limit = 50;
+            }
             IList<Client> clients = clientRepository.Find(filter);
             return MapClientsToViewModel(clients);
         }

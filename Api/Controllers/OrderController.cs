@@ -1,13 +1,14 @@
 ﻿using Application.Orders.Requests;
 using Application.Orders.Responses;
 using Application.Orders.Services;
-
+using Domain.Tokens.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("api/orders")]
+    [ServiceFilter(typeof(TokenAuth))]
     public class OrdersController(IOrderService orderService) : ControllerBase
     {
         private readonly IOrderService _orderService = orderService;

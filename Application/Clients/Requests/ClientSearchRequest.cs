@@ -9,6 +9,8 @@ namespace Application.Clients.Requests
         public string? Status { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
+        public int? Offset { get; set; }
+        public int? Limit { get; set; }
 
         public ClientSearch ToModel(ClientSearchRequest request)
         {
@@ -18,7 +20,9 @@ namespace Application.Clients.Requests
                 Name = request.Name,
                 Status = request.Status,
                 Email = request.Email,
-                Phone = request.Phone
+                Phone = request.Phone,
+                Offset = request.Offset.GetValueOrDefault(0),
+                Limit = request.Limit.GetValueOrDefault(0)
             };
         }
     }

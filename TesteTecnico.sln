@@ -11,13 +11,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Domain", "03 - Domain"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Persistence", "04 - Persistence", "{F823A61F-F143-4FB2-B5D6-0E0BF11CC660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{5B5FAF9D-DD09-462F-A117-317AB99502CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{5B5FAF9D-DD09-462F-A117-317AB99502CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{72E85290-8148-469B-A030-EB8A6BDE2F89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{72E85290-8148-469B-A030-EB8A6BDE2F89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{7F67932E-C738-40CA-B8B3-CE87F09D8570}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{7F67932E-C738-40CA-B8B3-CE87F09D8570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7686CB09-7846-4426-9A22-7067D9CAE4BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{7686CB09-7846-4426-9A22-7067D9CAE4BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - WEB", "00 - WEB", "{27C9D6B4-3CAD-4650-BA3F-598265ED4571}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web", "Web\", "{C5A33034-BE99-4C8E-AE8F-4068134EC1C5}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57778"
+		Debug.AspNetCompiler.PhysicalPath = "Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57778\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57778"
+		Release.AspNetCompiler.PhysicalPath = "Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57778\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57778"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +62,10 @@ Global
 		{7686CB09-7846-4426-9A22-7067D9CAE4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7686CB09-7846-4426-9A22-7067D9CAE4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7686CB09-7846-4426-9A22-7067D9CAE4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A33034-BE99-4C8E-AE8F-4068134EC1C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A33034-BE99-4C8E-AE8F-4068134EC1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A33034-BE99-4C8E-AE8F-4068134EC1C5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A33034-BE99-4C8E-AE8F-4068134EC1C5}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +75,7 @@ Global
 		{72E85290-8148-469B-A030-EB8A6BDE2F89} = {C1C11E1E-0171-4DA7-9280-71C860F25995}
 		{7F67932E-C738-40CA-B8B3-CE87F09D8570} = {477238D9-0B52-49ED-9FE2-F4DBF1B9E1D4}
 		{7686CB09-7846-4426-9A22-7067D9CAE4BC} = {F823A61F-F143-4FB2-B5D6-0E0BF11CC660}
+		{C5A33034-BE99-4C8E-AE8F-4068134EC1C5} = {27C9D6B4-3CAD-4650-BA3F-598265ED4571}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAE513CC-1261-4797-B2BC-69D2985010F3}
